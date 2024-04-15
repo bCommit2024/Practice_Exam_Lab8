@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.EmptyStackException;
 
 
-public class MyStack<E> extends ArrayList<E> {
+public class MyStack<E>{
     private ArrayList delegate;
     public MyStack(){
-        this.delegate = this;
+        this.delegate = new ArrayList<E>();
     }
     public void push(E e) {
-        delegate.add(e);
+        add(e);
     }
 
     public E pop() {
@@ -18,6 +18,26 @@ public class MyStack<E> extends ArrayList<E> {
         E e = (E) delegate.get((delegate.size()) - 1);
         delegate.remove((delegate.size()) -1 );
         return e;
+    }
+
+    public void add(E e){
+        delegate.add(e);
+    }
+
+    public void clear(){
+        delegate.clear();
+    }
+
+    public boolean contains(E e){
+        return delegate.contains(e);
+    }
+
+    public boolean isEmpty(){
+        return delegate.isEmpty();
+    }
+
+    public int size(){
+        return delegate.size();
     }
 
 }
